@@ -3,6 +3,7 @@ Ejemplos básicos de desarrollo con Html, Css y JavaScript.
 Mi Portafolio de Desarrollador Web
 
 Este es el código fuente de mi portafolio personal, creado para mostrar mis proyectos, habilidades y experiencia como desarrollador web. Este sitio no es solo una colección de trabajos, sino una demostración directa de mis competencias en las tecnologías web fundamentales.
+
 🌟 Características Destacadas
 
     Diseño Completamente Responsivo: Se adapta y se visualiza perfectamente en cualquier dispositivo, desde móviles hasta computadoras de escritorio.
