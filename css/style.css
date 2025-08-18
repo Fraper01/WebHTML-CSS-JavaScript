@@ -1,13 +1,14 @@
+/* Estilos generales para toda la página */
 body {
     background-color: #171d2b;
-    font-family: 'Inter', sans-serif; 
+    font-family: 'Inter', sans-serif;
     color: #e0e0e0;
 }
 
-egación con un gradiente */
+/* Navegación con un gradiente */
 .navbar-gradient-bg {
     background: linear-gradient(90deg, #1f283d 0%, #171d2b 100%);
-    padding: 1rem 0; 
+    padding: 1rem 0;
 }
 
 .navbar-brand-gradient {
@@ -22,7 +23,7 @@ egación con un gradiente */
 .nav-link {
     color: #e0e0e0 !important;
     transition: color 0.3s ease;
-    font-weight: 500; 
+    font-weight: 500;
     padding: 0 1rem;
 }
 
@@ -44,7 +45,7 @@ egación con un gradiente */
 }
 
 /* ============================ */
-/* Sección "Home"               */
+/* Sección "Home"               */
 /* ============================ */
 .text-section-header {
     background: linear-gradient(90deg, #9543e0, #4ac7ff);
@@ -58,29 +59,75 @@ egación con un gradiente */
 }
 
 /* ============================ */
-/* Sección "Sobre Mí"           */
+/* Sección "Sobre Mí" */
 /* ============================ */
+.profile-photo-wrapper {
+    position: relative;
+    width: 340px;
+    height: 340px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+/* El pseudo-elemento que crea el efecto de la circunferencia pulsante */
+.profile-photo-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 5px solid #007bff;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    animation: pulse 2s infinite;
+}
+
+/* La animación que hace que la circunferencia aumente y disminuya de tamaño y opacidad */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Contenedor principal de la imagen */
 .profile-image-container {
-    width: 350px;
-    height: 350px;
-    border-radius: 50%; 
-    overflow: hidden; 
-    border: 5px solid #4ac7ff; 
-    box-shadow: 0 0 15px rgba(74, 199, 255, 0.5); 
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #4ac7ff;
+    box-shadow: 0 0 15px rgba(74, 199, 255, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
+/* La imagen en sí */
 .profile-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     transition: transform 0.3s ease-in-out;
 }
 
+/* El efecto de zoom al pasar el mouse */
 .profile-image:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
 .btn-about {
@@ -92,16 +139,16 @@ egación con un gradiente */
 }
 
 .btn-about:hover {
-    transform: translateY(-2px); 
+    transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(74, 199, 255, 0.4);
 }
 
 /* ============================ */
-/* Sección "Experiencia"       */
+/* Sección "Experiencia"       */
 /* ============================ */
 .experience-card {
-    width: 100%;
-    max-width: 450px;
+    flex: 1 1 450px;
+    max-width: 100%;
     background-color: #1f283d;
     border-radius: 10px;
     padding: 1rem;
@@ -109,6 +156,7 @@ egación con un gradiente */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .experience-card:hover {
@@ -122,7 +170,7 @@ egación con un gradiente */
     justify-content: center;
     text-align: center;
     padding: 1rem;
-    height: 120px; /* Altura fija para alinear todos los títulos */
+    height: 120px;
     flex-shrink: 0;
 }
 
@@ -130,6 +178,26 @@ egación con un gradiente */
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0;
+}
+
+.card-title a {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.card-title a:hover {
+    text-decoration: none;
+}
+
+.card-title a::after {
+    content: " \2192";
+    font-size: 1em;
+    margin-left: 5px;
+    transition: margin-left 0.2s ease-in-out;
+}
+
+.card-title a:hover::after {
+    margin-left: 8px;
 }
 
 .card-subtitle {
@@ -152,9 +220,9 @@ egación con un gradiente */
 
 .description-text {
     margin-top: 1rem;
-    text-align: justify; /* Justifica el texto aquí */
+    text-align: justify;
+    /* Justifica el texto aquí */
 }
-
 
 .btn-gradient {
     background: linear-gradient(90deg, #007bff, #004d9b);
@@ -174,10 +242,348 @@ egación con un gradiente */
     box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
 }
 
+/* Estilos para las tarjetas de competencias */
+.card-competencias {
+    background-color: #1a1a2e;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
 
-/* Media query para pantallas más grandes (tablet, desktop) */
-@media (min-width: 768px) {
-    .experience-card {
-        width: calc(33.333% - 1rem);
+/* Estilos para los elementos de la lista dentro de las tarjetas */
+.list-competencias .list-group-item {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    padding-left: 0;
+    transition: background-color 0.3s ease;
+}
+
+.list-competencias .list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+}
+
+
+.card-text {
+    color: #b0b0b0;
+}
+
+.text-muted {
+    color: #fff;
+}
+
+
+/*
+    * CSS para la sección de Estudios y Cursos
+    * Se han añadido las clases para el efecto de volteo de las tarjetas
+    */
+
+/* Contenedor principal para el efecto de volteo */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 400px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+/* Contenedor interno que se voltea */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Clase para voltear la tarjeta */
+.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Estilo del frente y reverso de la tarjeta */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    flex-direction: column;
+
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: none;
+}
+
+/* Estilo del frente de la tarjeta (visible por defecto) */
+.flip-card-front {
+    z-index: 2;
+    background-color: #1a1a2e;
+    color: #fff;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.flip-card-front .card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.flip-card-front .card-footer-custom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+/* Estilo del reverso de la tarjeta (oculto por defecto) */
+.flip-card-back {
+    transform: rotateY(180deg);
+    background-color: #f8f9fa;
+    color: #343a40;
+    justify-content: flex-start;
+    overflow-y: auto;
+    align-items: flex-start;
+    text-align: left;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.flip-card-back::-webkit-scrollbar {
+    display: none;
+}
+
+.text-section-header {
+    color: #343a40;
+    font-weight: 700;
+}
+
+.text-section-content {
+    color: #6c757d;
+}
+
+.text-section-header a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.text-section-header a:hover {
+    text-decoration: underline;
+}
+
+.text-section-content {
+    color: #ccc;
+}
+
+.text-muted {
+    color: #aaa !important;
+}
+
+.flip-card-back ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.flip-card-back ul {
+    list-style-type: disc;
+    /* Usamos puntos por defecto */
+    padding-left: 0;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Estilos para las listas anidadas */
+.flip-card-back ul ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+    margin-top: 0.5rem;
+}
+
+.flip-card-back ul li {
+    margin-bottom: 0.5rem;
+}
+
+/*
+    * CSS para la sección de Creaciones y Proyectos
+*/
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(100%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 1rem;
+}
+
+/* Contenedor del carrusel con altura fija */
+#proyectoCarousel {
+    min-height: 400px;
+    max-height: 400px;
+    overflow: hidden;
+}
+
+/* Imágenes dentro del carrusel, se adaptan al contenedor */
+#proyectoCarousel .carousel-item img {
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Estilos para el modal */
+.modal-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+    * CSS para la sección de Power BI
+*/
+.dashboard-placeholder {
+    background-color: #1f283d;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-flex-item {
+    flex: 1 1 75%;
+}
+
+.carousel-flex-content {
+    flex: 1 1 25%;
+}
+
+/* En dispositivos móviles, queremos que se apilen verticalmente */
+@media (max-width: 767px) {
+    .carousel-flex-container {
+        flex-direction: column;
     }
+
+    .carousel-flex-item,
+    .carousel-flex-content {
+        flex: none;
+        width: 100%;
+    }
+}
+
+
+/*
+ * CSS para la sección de Mis servicios.
+ * Incluye el estilo base, la animación de "volante" y el efecto de volteo.
+ */
+
+/* Estilos para el contenedor de la tarjeta */
+.service-card {
+    width: 18rem;
+    height: 25rem;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+/* El elemento que va a girar y voltearse */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border: 1px solid #3d4a65;
+    background-color: #171d2b;
+    border-radius: 1rem;
+}
+
+/*
+ * Animación de la "rueda" (volante) que gira sobre el eje Z (2D).
+ * Esta animación es solo para el efecto de hover.
+ */
+@keyframes wheel-spin-z {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(180deg);
+    }
+}
+
+/* El efecto de "volante" se activa solo al pasar el ratón */
+.service-card:hover .card-inner {
+    animation: wheel-spin-z 1s ease-in-out;
+}
+
+/*
+ * Clase que usará JavaScript para voltear la tarjeta.
+ */
+.is-flipped {
+    transform: rotateY(180deg);
+    transition: transform 0.8s;
+}
+
+/* Estilos del frente y el reverso de la tarjeta */
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.card-front {
+    background-color: #171d2b;
+    color: #fff;
+}
+
+.card-back {
+    background-color: #171d2b;
+    transform: rotateY(180deg);
+    color: #fff;
+}
+
+.service-icon {
+    font-size: 4rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    color: #0d6efd;
+}
+
+.card-text {
+    color: #99a2b5;
+}
+
+.link-text {
+    color: #0d6efd;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.link-text:hover {
+    text-decoration: underline;
 }
