@@ -587,3 +587,26 @@ body {
 .link-text:hover {
     text-decoration: underline;
 }
+
+/* Estilos para el botón de inicio de sesión */
+.btn-login {
+    background: linear-gradient(90deg, #9543e0, #4ac7ff);
+    color: white;
+    font-weight: bold;
+    border-radius: 50px; /* Bordes redondos para un estilo moderno */
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    /* text-transform: uppercase; */
+}
+
+.btn-login:hover {
+    /* background-color: #45a049; Tono más oscuro al pasar el cursor */
+    transform: translateY(-2px); /* Efecto sutil de elevación */
+    box-shadow: 0 5px 15px rgba(74, 199, 255, 0.4);
+}
+
+.btn-login:active {
+    transform: translateY(0); /* Vuelve a su posición al hacer clic */
+}
+
+
