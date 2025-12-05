@@ -357,7 +357,14 @@ body {
     align-items: flex-start;
     text-align: left;
     -ms-overflow-style: none;
-    scrollbar-width: none;
+    scrollbar-width: none; /* Firefox */
+}
+
+/* SOLUCIÓN AL WARNING: Ocultar la barra de desplazamiento para Chrome, Safari, etc. 🚨 */
+.flip-card-back::-webkit-scrollbar {
+    display: none; /* Oculta la barra visualmente */
+    width: 0;      /* Asegura que no ocupa espacio */
+    height: 0;
 }
 
 .flip-card-back::-webkit-scrollbar {
@@ -610,3 +617,8 @@ body {
 }
 
 
+/* Estilo de los bloques de python */
+
+.code-block-style {
+    border: 1px solid #333; 
+}
