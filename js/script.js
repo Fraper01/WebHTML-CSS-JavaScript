@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Reestablecemos la animación para que se reinicie en el próximo 'mouseenter'.
             innerCard.style.animation = 'none';
-            innerCard.offsetHeight; 
+            innerCard.offsetHeight; // Forzamos un reflow para reiniciar la animación.
             innerCard.style.animation = '';
         });
     });
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (imagenModal) {
         imagenModal.addEventListener('show.bs.modal', function (event) {
             const imgElement = event.relatedTarget;
-            const imgSrc = imgElement.getAttribute('data-bs-image-src');
+            const imgSrc = imgElement.dataset.bsImageSrc;
             const modalImage = document.getElementById('imagenModalBody');
             modalImage.src = imgSrc;
             modalImage.alt = imgElement.alt;
@@ -122,10 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (comunicacionModal) {
         comunicacionModal.addEventListener('show.bs.modal', event => {
             const button = event.relatedTarget;
-            const imageUrl = button.getAttribute('data-bs-image-src');
+            const imageUrl = button.dataset.bsImageSrc;
             const modalImage = comunicacionModal.querySelector('#modalImage');
             modalImage.src = imageUrl;
         });
     }
+
 
 });

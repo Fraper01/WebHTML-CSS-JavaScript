@@ -52,15 +52,22 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-weight: 700;
 }
 
 .text-section-content {
-    color: #b0b0b0;
+    color: #ccc;
 }
 
 /* ============================ */
 /* Sección "Sobre Mí" */
 /* ============================ */
+/* Estilo para el subtítulo de bienvenida */
+.welcome-subtitle {
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
 .profile-photo-wrapper {
     position: relative;
     width: 340px;
@@ -178,6 +185,7 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0;
+    color: #0d6efd;
 }
 
 .card-title a {
@@ -227,7 +235,7 @@ body {
 .btn-gradient {
     background: linear-gradient(90deg, #007bff, #004d9b);
     border: none;
-    color: white;
+    color: rgb(17, 17, 17);
     font-weight: bold;
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
@@ -264,15 +272,13 @@ body {
     border-radius: 0.5rem;
 }
 
-
 .card-text {
     color: #b0b0b0;
 }
 
 .text-muted {
-    color: #fff;
+    color: #aaa !important;
 }
-
 
 /*
     * CSS para la sección de Estudios y Cursos
@@ -320,6 +326,24 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     border: none;
+    /* Para Firefox y Chrome moderno */
+    overflow-y: auto;
+}
+
+.flip-card-back::-webkit-scrollbar-track {
+    background: #171d2b;
+}
+
+/* SOLUCIÓN AL WARNING: Ocultar la barra de desplazamiento para Chrome, Safari, etc. 🚨 */
+.flip-card-back::-webkit-scrollbar {
+    display: none; /* Oculta la barra visualmente */
+    width: 0;      /* Asegura que no ocupa espacio */
+    height: 0;
+}
+
+.flip-card-back::-webkit-scrollbar-thumb {
+    background-color: #4ac7ff;
+    border-radius: 10px;
 }
 
 /* Estilo del frente de la tarjeta (visible por defecto) */
@@ -357,28 +381,8 @@ body {
     align-items: flex-start;
     text-align: left;
     -ms-overflow-style: none;
-    scrollbar-width: none; /* Firefox */
 }
 
-/* SOLUCIÓN AL WARNING: Ocultar la barra de desplazamiento para Chrome, Safari, etc. 🚨 */
-.flip-card-back::-webkit-scrollbar {
-    display: none; /* Oculta la barra visualmente */
-    width: 0;      /* Asegura que no ocupa espacio */
-    height: 0;
-}
-
-.flip-card-back::-webkit-scrollbar {
-    display: none;
-}
-
-.text-section-header {
-    color: #343a40;
-    font-weight: 700;
-}
-
-.text-section-content {
-    color: #6c757d;
-}
 
 .text-section-header a {
     color: inherit;
@@ -389,26 +393,12 @@ body {
     text-decoration: underline;
 }
 
-.text-section-content {
-    color: #ccc;
-}
 
-.text-muted {
-    color: #aaa !important;
-}
 
 .flip-card-back ul {
     list-style-type: none;
     padding-left: 0;
     text-align: left;
-    width: 100%;
-    margin-top: 1rem;
-}
-
-.flip-card-back ul {
-    list-style-type: disc;
-    /* Usamos puntos por defecto */
-    padding-left: 0;
     width: 100%;
     margin-top: 1rem;
 }
@@ -576,14 +566,6 @@ body {
     margin-bottom: 1rem;
 }
 
-.card-title {
-    color: #0d6efd;
-}
-
-.card-text {
-    color: #99a2b5;
-}
-
 .link-text {
     color: #0d6efd;
     text-decoration: none;
@@ -603,7 +585,6 @@ body {
     border-radius: 50px; /* Bordes redondos para un estilo moderno */
     padding: 5px 10px;
     transition: all 0.3s ease;
-    /* text-transform: uppercase; */
 }
 
 .btn-login:hover {
@@ -621,4 +602,47 @@ body {
 
 .code-block-style {
     border: 1px solid #333; 
+}
+
+/* Estilos para las pestañas de formación */
+.nav-pills .nav-link {
+    color: #99a2b5;
+    border: 1px solid #343a40;
+    margin: 0 5px;
+}
+
+.nav-pills .nav-link.active {
+    background: linear-gradient(90deg, #9543e0, #4ac7ff);
+    color: white;
+    border: none;
+}
+
+.tab-pane {
+    padding-top: 20px;
+}
+
+/* Colores para destacar el Backend Moderno */
+.skill-category.modern {
+    border-left: 5px solid #27ae60; /* Un verde que evoca vitalidad y crecimiento */
+    background: #1f283d;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para la experiencia de PowerBuilder (Seriedad y Robustez) */
+.skill-category.legacy {
+    border-left: 5px solid #2c3e50; /* Un azul oscuro que evoca estabilidad */
+    background: #1f283d;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Animación para que las nuevas skills resalten */
+.modern li {
+    transition: transform 0.3s;
+}
+.modern li:hover {
+    transform: translateX(10px);
+    color: #27ae60;
 }
